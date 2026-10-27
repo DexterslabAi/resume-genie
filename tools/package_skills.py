@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Package each skill as an upload-ready zip in dist/ (Claude app: Customize > Skills > Upload).
+"""Package each skill as an upload-ready zip in dist/ (Claude app: Settings > Capabilities > Skills > Upload skill).
 
   python tools/package_skills.py
 

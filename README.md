@@ -12,6 +12,8 @@
 
 Built by **Rahul Kashyap**
 
+[**Quick start**](#quick-start) · [How it works](#how-it-works) · [Skills](#the-skills) · [Evaluation](#evaluation) · [Development](#development)
+
 </div>
 
 ---
@@ -36,6 +38,42 @@ Drag your CV into Claude and paste the job advert. Resume Genie works **in stage
 Ask for a **salary benchmark** and you get just the essentials: the advert's own range with where to pitch your ask, or a table of the top 3 sources and a one-line verdict.
 
 Every CV rewrite passes **a fabrication audit**: every number, employer and date is checked against the original. Missing figures become highlighted `[placeholders]` for you to fill in, never inventions.
+
+## Quick start
+
+You need a **Claude Pro, Max, Team or Enterprise** plan (skills aren't available on the free plan).
+
+**In the Claude app (claude.ai or desktop), about 2 minutes:**
+
+1. **Download** [`resume-genie.zip`](https://github.com/DexterslabAi/resume-genie/releases/latest/download/resume-genie.zip) from the latest release. Don't unzip it.
+2. In Claude, open **Settings → Capabilities** and turn on **Code execution and file creation**. Resume Genie needs it to calculate scores and build Word files.
+3. On the same page, scroll to **Skills**, click **Upload skill** and choose `resume-genie.zip`.
+4. Make sure the skill's toggle is **on**.
+5. Start a new chat, attach your CV and paste a job advert. You'll get the fit check, then a menu of next steps.
+
+The other seven skills on the [releases page](https://github.com/DexterslabAi/resume-genie/releases/latest) are optional specialists; `resume-genie` alone covers the full workflow.
+
+**In Claude Code:**
+
+```bash
+git clone https://github.com/DexterslabAi/resume-genie.git
+mkdir -p ~/.claude/skills
+cp -r resume-genie/skills/* ~/.claude/skills/
+```
+
+Then run `claude` in any folder and say *"Here's my CV and a job advert"*.
+
+**Updating:** download the new `resume-genie.zip` from the latest release, delete the old skill under **Settings → Capabilities → Skills**, and upload the new one.
+
+**Tip for a job search:** create a Claude Project per person, upload your master CV to the Project's files, and start one chat per job. Each search keeps its own history.
+
+**Troubleshooting**
+
+| Problem | Fix |
+|---|---|
+| Claude writes the CV in the chat but gives no Word file | Turn on **Code execution and file creation** in Settings → Capabilities |
+| The skill never seems to run | Check its toggle is on, then start a new chat and mention "Resume Genie" |
+| Upload is rejected | Upload the `.zip` as downloaded; don't unzip and re-zip it |
 
 ![Resume Genie scoring a CV, passing the fabrication audit, then catching two planted fabrications](docs/images/demo.gif)
 
@@ -86,21 +124,6 @@ More detail in [docs/design.md](docs/design.md).
 | [`regional-cv-formats`](skills/regional-cv-formats) | "Make this a UAE / German / Indian / US CV" | Word builder, region rules |
 | [`finance-transformation-cv`](skills/finance-transformation-cv) | Finance transformation, GBS, ERP and AI-in-finance roles | domain reference |
 
-## Install
-
-**Claude app (claude.ai or desktop):**
-1. Turn on **Settings → Capabilities → Create and edit files** (needed for scoring and Word files).
-2. Download the skill zips from the [latest release](https://github.com/DexterslabAi/resume-genie/releases), or build them with `python tools/package_skills.py`.
-3. Upload each one under **Customize → Skills → + → Upload a skill**. Start with `resume-genie`.
-
-**Claude Code:**
-```bash
-git clone https://github.com/DexterslabAi/resume-genie.git
-cp -r resume-genie/skills/* ~/.claude/skills/
-```
-
-**Tip for a job search:** create a Claude Project per person, upload your master CV to the Project's files, and start one chat per job. Each search keeps its own history.
-
 ## Example prompts
 
 ```
@@ -145,7 +168,7 @@ docs/                    design notes and images
 
 ```bash
 pip install python-docx                     # the only dependency
-python -m unittest discover -s tests -t .   # 33 unit tests
+python -m unittest discover -s tests -t .   # 35 unit tests
 python evals/run_evals.py --write           # evaluations + adversarial guardrail suite
 python tools/lint_skills.py                 # skill format rules
 python tools/sync_shared.py                 # copy shared/ into skills after edits
