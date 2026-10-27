@@ -27,11 +27,13 @@ Drag your CV into Claude and paste the job advert. Resume Genie works **in stage
 > |---|---|---|---|---|
 > | Product Owner experience | Required | Missing | ... | ... |
 
-**2. Then you choose** from a menu (buttons where the Claude app supports them). Each option runs once; finished ones are marked ✓ and drop out of the menu:
+**2. Then you choose** from a menu (Claude-orange buttons where the app can render them, otherwise a numbered list). Each option runs once; finished ones are marked ✓ and drop out of the menu:
 
 - **Rewrite my CV:** a tailored Word CV in one of four templates and eight regional formats (UK & Ireland, US, Canada, Australia & NZ, Europe, Germany/DACH, UAE & GCC, India), with the ATS score before → after (*57 → 75*).
 - **Write a cover letter:** a Word letter built on your real evidence, with gaps handled honestly.
 - **Prepare for the interview:** STAR stories from your real experience, likely questions (including the awkward ones about your gaps) and questions to ask.
+
+Ask for a **salary benchmark** and you get just the essentials: the advert's own range with where to pitch your ask, or a table of the top 3 sources and a one-line verdict.
 
 Every CV rewrite passes **a fabrication audit**: every number, employer and date is checked against the original. Missing figures become highlighted `[placeholders]` for you to fill in, never inventions.
 

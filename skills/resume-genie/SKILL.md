@@ -54,8 +54,10 @@ End every stage with the next actions:
 - **Write a cover letter**
 - **Prepare for the interview**
 
-How to show it:
-- If the app gives you a way to ask the user a multiple-choice question, use it, so the options appear as buttons. Otherwise show a short numbered list the user can answer with a number.
+How to show it, in this order of preference:
+1. **Buttons.** If you can render an inline interactive widget, show the open options as buttons in Claude orange (`#D97757`, white text, rounded), with done options as greyed-out, disabled buttons (`#E5E2DA` background, `#8A8780` text, labelled "✓ … done"). Each button sends its option back as the user's reply.
+2. **The app's own choices.** Otherwise, if the app gives you a way to ask the user a multiple-choice question, use it.
+3. **Numbered list.** As a last resort, a short numbered list the user can answer with a number.
 - Track what has been done for the current job in this chat. A done action is shown as "✓ Rewrite CV: done" and is **not** offered as a choice. Run it again only when the user explicitly asks in their own words ("rewrite the CV again, more senior").
 - When all three are done, offer only "Check another job".
 - A new job advert resets the menu and starts again at Stage 1.
@@ -99,7 +101,26 @@ Then the menu. For a mock interview, ask one question at a time and give feedbac
 
 - **"Use the Modern template" / "make it US format":** rebuild with the new flags. There's no need to rewrite.
 - **"Here are the numbers: …":** add them to `extra_facts.txt`, replace the placeholders, then rerun the audit and the build.
-- **Salary, LinkedIn summary and similar:** only when the user asks.
+- **Salary benchmark:** only when the user asks. See below.
+- **LinkedIn summary and similar:** only when the user asks.
+
+## Salary benchmark (only when asked)
+
+Keep it to a table and one verdict. No market commentary, no negotiation essay.
+
+- **The advert states a salary range:** quote it, then suggest where to ask inside it based on the fit check. A strong fit aims for the upper third, a stretch for the middle.
+
+  **Advert range:** €80,000–€95,000
+  **Ask for:** €90,000–€95,000. One sentence on why.
+
+- **No range in the advert:** search the web for this role, seniority and location. Show only the 3 best sources:
+
+  | Source | Role match | Range | Date |
+  |---|---|---|---|
+
+  **Ask for:** €X–€Y. One sentence on why (seniority, fit, location).
+
+Name each source with its link. Never invent figures: if fewer than 3 credible sources exist, show what you found and say so.
 
 ## Files
 

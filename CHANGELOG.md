@@ -3,6 +3,8 @@
 ## 1.1.0 (2026-10-27)
 
 - Staged workflow in `resume-genie`: a job advert now gets a fit check only (one-line calculated ATS score plus a gap table), followed by a menu to rewrite the CV, write a cover letter or prepare for the interview. Finished steps are marked done and leave the menu. Most adverts need only the fit check, which cuts tokens substantially.
+- The menu shows Claude-orange buttons where the app can render them (done steps greyed out), then the app's own choices, then a numbered list.
+- Salary benchmark on request only: the advert's own range with a suggested ask, or a table of the top 3 sources and a one-line verdict.
 - `output-schema.json` requires only `analysis`; each stage adds its own part.
 - `build_docx.py` builds only what a stage produced (CV, letter or both) and takes `--name` for letter-only builds.
 
