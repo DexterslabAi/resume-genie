@@ -1,0 +1,7 @@
+{
+  "title": "Finance transformation manager applying for a Product Owner role (Dublin)",
+  "region": "uk-ie",
+  "track": "finance-transformation",
+  "notes": "Strong process depth, no formal Product Owner title: tests honest gap handling and placeholders instead of invented metrics.",
+  "expect": { "min_ats_gain": 10, "fabrication_clean": true, "min_placeholders": 1 }
+}

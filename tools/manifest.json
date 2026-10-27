@@ -1,0 +1,16 @@
+{
+  "resume-genie": {
+    "scripts": ["ats_score.py", "build_docx.py", "check_fabrication.py", "validate_output.py"],
+    "references": ["job-analysis.md", "cv-writing.md", "career-tracks.md", "regions.md", "cover-letter.md", "interview-prep.md", "output-schema.json"]
+  },
+  "job-match-analyzer": { "scripts": ["ats_score.py"], "references": ["job-analysis.md"] },
+  "ats-score": { "scripts": ["ats_score.py"], "references": ["job-analysis.md"] },
+  "cv-tailor": {
+    "scripts": ["ats_score.py", "build_docx.py", "check_fabrication.py"],
+    "references": ["cv-writing.md", "career-tracks.md", "regions.md", "output-schema.json"]
+  },
+  "cover-letter-writer": { "scripts": ["build_docx.py"], "references": ["cover-letter.md", "output-schema.json"] },
+  "interview-prep-coach": { "scripts": [], "references": ["interview-prep.md"] },
+  "regional-cv-formats": { "scripts": ["build_docx.py"], "references": ["regions.md", "output-schema.json"] },
+  "finance-transformation-cv": { "scripts": [], "references": ["career-tracks.md", "cv-writing.md"] }
+}

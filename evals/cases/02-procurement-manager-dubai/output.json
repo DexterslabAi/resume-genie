@@ -1,0 +1,337 @@
+{
+  "analysis": {
+    "role_title": "Procurement Manager - Construction",
+    "company": "Meridian Developments",
+    "match_score": 78,
+    "verdict": "apply",
+    "verdict_reason": "Eight years of UAE construction procurement with SAP Ariba and CIPS meets the core; category management and ESG are not yet evidenced.",
+    "keywords": [
+      {
+        "term": "procurement",
+        "importance": "required"
+      },
+      {
+        "term": "strategic sourcing",
+        "importance": "required",
+        "synonyms": [
+          "sourcing strategy"
+        ]
+      },
+      {
+        "term": "category management",
+        "importance": "required"
+      },
+      {
+        "term": "contract management",
+        "importance": "required",
+        "synonyms": [
+          "contracts"
+        ]
+      },
+      {
+        "term": "negotiation",
+        "importance": "required",
+        "synonyms": [
+          "negotiations"
+        ]
+      },
+      {
+        "term": "SAP MM",
+        "importance": "required"
+      },
+      {
+        "term": "SAP Ariba",
+        "importance": "required",
+        "synonyms": [
+          "Ariba"
+        ]
+      },
+      {
+        "term": "people management",
+        "importance": "required",
+        "synonyms": [
+          "team of buyers",
+          "supervised",
+          "managed a team"
+        ]
+      },
+      {
+        "term": "CIPS",
+        "importance": "required",
+        "synonyms": [
+          "MCIPS"
+        ]
+      },
+      {
+        "term": "construction",
+        "importance": "required"
+      },
+      {
+        "term": "MEP",
+        "importance": "preferred"
+      },
+      {
+        "term": "tenders",
+        "importance": "preferred",
+        "synonyms": [
+          "tendering",
+          "e-tendering"
+        ]
+      },
+      {
+        "term": "cost savings",
+        "importance": "preferred",
+        "synonyms": [
+          "cost reduction"
+        ]
+      },
+      {
+        "term": "supplier performance",
+        "importance": "preferred",
+        "synonyms": [
+          "supplier relationships"
+        ]
+      },
+      {
+        "term": "KPIs",
+        "importance": "preferred"
+      },
+      {
+        "term": "Arabic",
+        "importance": "preferred"
+      },
+      {
+        "term": "ESG",
+        "importance": "preferred",
+        "synonyms": [
+          "sustainability"
+        ]
+      }
+    ],
+    "requirements": [
+      {
+        "requirement": "7+ years procurement in UAE construction",
+        "importance": "required",
+        "status": "met",
+        "evidence": "8 years across Falcon Build Contracting and Gulf Facilities Services."
+      },
+      {
+        "requirement": "Strategic sourcing and category management",
+        "importance": "required",
+        "status": "partial",
+        "evidence": "Sourcing for 3 projects is shown; category management is not named."
+      },
+      {
+        "requirement": "Contract management and negotiation",
+        "importance": "required",
+        "status": "met",
+        "evidence": "Managed supplier contracts; price negotiations at Gulf Facilities Services."
+      },
+      {
+        "requirement": "SAP MM and SAP Ariba",
+        "importance": "required",
+        "status": "met",
+        "evidence": "SAP MM vendor database; introduced e-tendering on SAP Ariba."
+      },
+      {
+        "requirement": "People management",
+        "importance": "required",
+        "status": "met",
+        "evidence": "Supervised 4 buyers."
+      },
+      {
+        "requirement": "CIPS qualification",
+        "importance": "required",
+        "status": "met",
+        "evidence": "CIPS Level 4 Diploma, 2021."
+      },
+      {
+        "requirement": "ESG in sourcing",
+        "importance": "preferred",
+        "status": "missing",
+        "evidence": "Not mentioned."
+      }
+    ],
+    "strengths": [
+      "UAE construction procurement with a measured cycle-time result (12 to 7 days)",
+      "Hands-on SAP Ariba e-tendering rollout",
+      "CIPS-qualified and already leading buyers"
+    ],
+    "gaps": [
+      {
+        "gap": "Category management not evidenced",
+        "advice": "If you grouped spend by category (for example concrete, steel, MEP) or set category strategies, describe it in those words."
+      },
+      {
+        "gap": "Savings not quantified",
+        "advice": "Add the savings or price reductions you achieved; the advert prioritises cost savings."
+      },
+      {
+        "gap": "No ESG or sustainability sourcing",
+        "advice": "Mention any green-building materials or supplier sustainability checks; otherwise address it briefly in the cover letter."
+      }
+    ],
+    "red_flags": [],
+    "strategy": [
+      "Lead the headline with construction procurement management",
+      "Rewrite Falcon Build bullets around strategic sourcing, tenders and team leadership",
+      "Name category groupings where true",
+      "Add savings and spend placeholders for the candidate to fill",
+      "Add visa status, nationality and notice period for the UAE format"
+    ]
+  },
+  "cv": {
+    "name": "Omar Haddad",
+    "headline": "Procurement Lead | Construction and MEP Strategic Sourcing | SAP Ariba and SAP MM | CIPS",
+    "contact": [
+      "Sharjah, UAE",
+      "omar.haddad@example.com",
+      "+971 50 000 0000"
+    ],
+    "summary": "CIPS-qualified procurement professional with 8 years in UAE construction and facilities supply chains. Leads sourcing, tenders and contracts for major residential projects, and cut the average purchase order cycle from 12 to 7 days by introducing e-tendering on SAP Ariba. Manages a team of 4 buyers and brings strong supplier negotiation and SAP MM experience to Meridian's development pipeline.",
+    "skills": [
+      {
+        "group": "Procurement",
+        "items": [
+          "Strategic sourcing",
+          "Tenders and e-tendering",
+          "Contract management",
+          "Negotiation",
+          "Supplier relationships"
+        ]
+      },
+      {
+        "group": "Systems",
+        "items": [
+          "SAP Ariba",
+          "SAP MM",
+          "Excel"
+        ]
+      },
+      {
+        "group": "Leadership",
+        "items": [
+          "People management (team of 4 buyers)"
+        ]
+      },
+      {
+        "group": "Languages",
+        "items": [
+          "Arabic",
+          "English"
+        ]
+      }
+    ],
+    "experience": [
+      {
+        "title": "Procurement Lead",
+        "company": "Falcon Build Contracting",
+        "location": "Dubai",
+        "dates": "2020 - Present",
+        "bullets": [
+          {
+            "text": "Led strategic sourcing for 3 major residential construction projects, covering [construction and MEP packages worth AED X].",
+            "needs_confirmation": true
+          },
+          {
+            "text": "Introduced e-tendering on SAP Ariba, cutting the average purchase order cycle from 12 to 7 days (42% faster)."
+          },
+          {
+            "text": "Managed a team of 4 buyers across sourcing, tenders and contract administration."
+          },
+          {
+            "text": "Negotiated and managed supplier contracts, achieving [X% / AED X] in cost savings.",
+            "needs_confirmation": true
+          },
+          {
+            "text": "Managed supplier relationships and performance across [N] key suppliers.",
+            "needs_confirmation": true
+          }
+        ]
+      },
+      {
+        "title": "Buyer",
+        "company": "Gulf Facilities Services",
+        "location": "Abu Dhabi",
+        "dates": "2016 - 2020",
+        "bullets": [
+          {
+            "text": "Purchased MEP materials and spare parts for facilities maintenance."
+          },
+          {
+            "text": "Prepared supplier comparisons and led price negotiations."
+          },
+          {
+            "text": "Maintained the vendor database in SAP MM."
+          }
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "Bachelor of Engineering (Mechanical)",
+        "institution": "American University of Sharjah",
+        "dates": "2016"
+      }
+    ],
+    "certifications": [
+      "CIPS Level 4 Diploma in Procurement and Supply (2021)"
+    ],
+    "changes": [
+      {
+        "section": "Headline",
+        "change": "Added a construction procurement headline with SAP Ariba and CIPS.",
+        "reason": "Mirrors the role and its must-haves in the first line."
+      },
+      {
+        "section": "Experience",
+        "change": "Rewrote responsibilities as achievements and surfaced team leadership.",
+        "reason": "People management is a requirement; '4 buyers' was buried."
+      },
+      {
+        "section": "Experience",
+        "change": "Added placeholders for project value, savings and supplier count.",
+        "reason": "The advert prioritises savings; only Omar knows the figures."
+      }
+    ]
+  },
+  "cover_letter": {
+    "greeting": "Dear Hiring Manager,",
+    "paragraphs": [
+      "At Falcon Build Contracting I introduced e-tendering on SAP Ariba and cut our average purchase order cycle from 12 to 7 days across 3 major residential projects. I'd like to bring that pace and discipline to Meridian Developments as Procurement Manager.",
+      "My 8 years in UAE construction and facilities procurement cover the core of the role: sourcing and tenders for construction and MEP packages, supplier contracts and negotiation, and day-to-day SAP MM and Ariba. I'm CIPS-qualified and already lead a team of 4 buyers.",
+      "Category management and sustainability-led sourcing are areas I'm keen to formalise. I've grouped our sourcing by project until now, and I'd welcome building category strategies around Meridian's pipeline.",
+      "I'd value the chance to discuss how I could help Meridian deliver its developments on cost and on time."
+    ],
+    "sign_off": "Kind regards,\nOmar Haddad",
+    "notes": [
+      "Add your savings figure to the first paragraph if you have it.",
+      "Name the hiring manager if you can find them."
+    ]
+  },
+  "interview": {
+    "star_stories": [
+      {
+        "title": "E-tendering rollout",
+        "situation": "Purchase orders at Falcon Build took 12 days on average.",
+        "task": "Speed up tendering without losing control.",
+        "action": "I introduced e-tendering on SAP Ariba, set up templates and trained the buyers.",
+        "result": "The average PO cycle fell to 7 days.",
+        "best_for": [
+          "process improvement",
+          "systems"
+        ]
+      }
+    ],
+    "questions": [
+      {
+        "question": "How do you approach category management?",
+        "type": "gap",
+        "approach": "Be honest that you've sourced by project, then describe how you would group spend and set category strategies."
+      }
+    ],
+    "questions_to_ask": [
+      "How is procurement measured here: savings, schedule or supplier performance?"
+    ]
+  }
+}

@@ -1,0 +1,456 @@
+{
+  "analysis": {
+    "role_title": "Senior Product Owner, Finance Automation",
+    "company": "Northwind Payments",
+    "seniority": "Senior individual contributor",
+    "match_score": 74,
+    "verdict": "apply",
+    "verdict_reason": "Deep P2P and finance transformation experience matches the core of the role. The main gap is the formal Product Owner title and Agile delivery, which the CV does not yet show.",
+    "keywords": [
+      {
+        "term": "Product Owner",
+        "importance": "required",
+        "synonyms": [
+          "product owner",
+          "product manager"
+        ]
+      },
+      {
+        "term": "product backlog",
+        "importance": "required",
+        "synonyms": [
+          "backlog"
+        ]
+      },
+      {
+        "term": "Agile",
+        "importance": "required",
+        "synonyms": [
+          "scrum"
+        ]
+      },
+      {
+        "term": "user stories",
+        "importance": "required",
+        "synonyms": [
+          "user story"
+        ]
+      },
+      {
+        "term": "P2P",
+        "importance": "required",
+        "synonyms": [
+          "purchase-to-pay",
+          "procure-to-pay",
+          "accounts payable"
+        ]
+      },
+      {
+        "term": "R2R",
+        "importance": "required",
+        "synonyms": [
+          "record-to-report",
+          "general ledger",
+          "month-end close"
+        ]
+      },
+      {
+        "term": "SAP S/4HANA",
+        "importance": "required",
+        "synonyms": [
+          "s/4hana"
+        ]
+      },
+      {
+        "term": "stakeholder management",
+        "importance": "required"
+      },
+      {
+        "term": "finance transformation",
+        "importance": "required"
+      },
+      {
+        "term": "shared services",
+        "importance": "required"
+      },
+      {
+        "term": "roadmap",
+        "importance": "required"
+      },
+      {
+        "term": "business cases",
+        "importance": "required",
+        "synonyms": [
+          "business case"
+        ]
+      },
+      {
+        "term": "KPIs",
+        "importance": "required",
+        "synonyms": [
+          "kpi"
+        ]
+      },
+      {
+        "term": "automation",
+        "importance": "required"
+      },
+      {
+        "term": "acceptance criteria",
+        "importance": "preferred"
+      },
+      {
+        "term": "AI",
+        "importance": "preferred",
+        "synonyms": [
+          "artificial intelligence",
+          "machine learning"
+        ]
+      },
+      {
+        "term": "intelligent document processing",
+        "importance": "preferred",
+        "synonyms": [
+          "invoice data extraction",
+          "ocr"
+        ]
+      },
+      {
+        "term": "RPA",
+        "importance": "preferred"
+      },
+      {
+        "term": "SQL",
+        "importance": "preferred"
+      },
+      {
+        "term": "Power BI",
+        "importance": "preferred"
+      },
+      {
+        "term": "Lean Six Sigma",
+        "importance": "preferred"
+      },
+      {
+        "term": "straight-through processing",
+        "importance": "preferred"
+      }
+    ],
+    "requirements": [
+      {
+        "requirement": "7+ years in finance operations or transformation",
+        "importance": "required",
+        "status": "met",
+        "evidence": "9 years across Harbourline, Kestrel and Mullen & Co."
+      },
+      {
+        "requirement": "Product Owner experience in Agile",
+        "importance": "required",
+        "status": "partial",
+        "evidence": "Gathered requirements and led the P2P programme, but no PO title, backlog or Scrum mentioned."
+      },
+      {
+        "requirement": "Strong P2P and R2R knowledge",
+        "importance": "required",
+        "status": "met",
+        "evidence": "P2P programme in 6 countries; AP and GL process documentation; month-end close."
+      },
+      {
+        "requirement": "ERP experience, ideally SAP S/4HANA",
+        "importance": "required",
+        "status": "met",
+        "evidence": "S/4HANA migration testing at Kestrel; ERP requirements workshops at Harbourline."
+      },
+      {
+        "requirement": "Stakeholder management with senior finance leaders",
+        "importance": "required",
+        "status": "partial",
+        "evidence": "Built CFO dashboards; seniority of stakeholders is implied, not stated."
+      },
+      {
+        "requirement": "AI / IDP / RPA experience",
+        "importance": "preferred",
+        "status": "partial",
+        "evidence": "Implemented an invoice automation tool; the technology is not named."
+      },
+      {
+        "requirement": "SQL and Power BI",
+        "importance": "preferred",
+        "status": "partial",
+        "evidence": "Power BI is shown; SQL is not mentioned."
+      },
+      {
+        "requirement": "CSPO or similar",
+        "importance": "preferred",
+        "status": "missing",
+        "evidence": "No product or Agile certification listed."
+      },
+      {
+        "requirement": "Lean Six Sigma",
+        "importance": "preferred",
+        "status": "met",
+        "evidence": "Green Belt, 2019."
+      }
+    ],
+    "strengths": [
+      "Hands-on P2P transformation across 6 countries, with a measured result (9 to 4 days)",
+      "Both sides of the role: finance process depth plus ERP and automation delivery",
+      "Executive-facing analytics (CFO dashboards in Power BI)"
+    ],
+    "gaps": [
+      {
+        "gap": "No explicit Product Owner or Agile experience",
+        "advice": "If you ran the automation rollout in sprints or owned its backlog, say so in those words. If not, address it head-on in the cover letter and consider a CSPO course."
+      },
+      {
+        "gap": "Automation technology not named",
+        "advice": "Name the invoice automation tool and whether it used OCR or machine learning. This is the AI evidence the role is looking for."
+      },
+      {
+        "gap": "Few metrics outside one bullet",
+        "advice": "Add team size, invoice volumes, budget or savings where you know them."
+      }
+    ],
+    "red_flags": [],
+    "strategy": [
+      "Reposition the headline and summary around finance automation product ownership",
+      "Rewrite Harbourline bullets in product language: backlog, user stories, roadmap, adoption KPIs",
+      "Surface P2P and R2R keywords explicitly (the CV currently says \"purchase-to-pay\" and \"general ledger\" only)",
+      "Name the automation technology and quantify volumes and team size",
+      "Group skills into Product, Finance Process, and Tools for ATS readability"
+    ]
+  },
+  "cv": {
+    "name": "Jordan Byrne",
+    "headline": "Finance Automation Product Lead | P2P and R2R Transformation | SAP S/4HANA",
+    "contact": [
+      "Dublin, Ireland",
+      "jordan.byrne@example.com",
+      "+353 87 000 0000",
+      "linkedin.com/in/jordan-byrne-example"
+    ],
+    "summary": "Finance transformation lead with 9 years in shared services, specialising in P2P and R2R automation. Led a purchase-to-pay automation programme across 6 countries that cut invoice processing time from 9 to 4 days. Translates finance process requirements into clear delivery priorities, builds business cases for automation, and gives CFO-level stakeholders the KPIs to track adoption. Lean Six Sigma Green Belt with hands-on SAP S/4HANA experience.",
+    "skills": [
+      {
+        "group": "Product and delivery",
+        "items": [
+          "Requirements and user stories",
+          "Roadmap and prioritisation",
+          "Business cases",
+          "KPI definition",
+          "Stakeholder management"
+        ]
+      },
+      {
+        "group": "Finance processes",
+        "items": [
+          "P2P (purchase-to-pay)",
+          "R2R (record-to-report)",
+          "Accounts payable",
+          "General ledger",
+          "Month-end close",
+          "Shared services"
+        ]
+      },
+      {
+        "group": "Tools and methods",
+        "items": [
+          "SAP S/4HANA",
+          "Power BI",
+          "Excel",
+          "Process mapping (Visio)",
+          "Lean Six Sigma"
+        ]
+      }
+    ],
+    "experience": [
+      {
+        "title": "Finance Transformation Manager",
+        "company": "Harbourline Group",
+        "location": "Dublin",
+        "dates": "2021 - Present",
+        "bullets": [
+          {
+            "text": "Led the P2P automation programme across 6 countries, cutting invoice processing time from 9 to 4 days (56% faster)."
+          },
+          {
+            "text": "Owned requirements for an invoice automation tool with IT, prioritising [N] features for rollout to [N] business units.",
+            "needs_confirmation": true
+          },
+          {
+            "text": "Ran requirements workshops with finance users and translated their needs into specifications for the new ERP."
+          },
+          {
+            "text": "Built Power BI dashboards giving the CFO KPIs on invoice cycle time and [metric] across all 6 countries.",
+            "needs_confirmation": true
+          },
+          {
+            "text": "Managed a team of [N] analysts delivering process redesign and automation.",
+            "needs_confirmation": true
+          }
+        ]
+      },
+      {
+        "title": "Senior Process Analyst",
+        "company": "Kestrel Shared Services",
+        "location": "Dublin",
+        "dates": "2017 - 2021",
+        "bullets": [
+          {
+            "text": "Identified automation opportunities in accounts payable and R2R, and built the business cases to fund them."
+          },
+          {
+            "text": "Tested P2P and general ledger processes for the SAP S/4HANA migration."
+          },
+          {
+            "text": "Documented end-to-end AP and GL processes, creating the baseline for the shared services automation roadmap."
+          },
+          {
+            "text": "Supported month-end close for [N] entities.",
+            "needs_confirmation": true
+          }
+        ]
+      },
+      {
+        "title": "Finance Analyst",
+        "company": "Mullen & Co.",
+        "location": "Cork",
+        "dates": "2015 - 2017",
+        "bullets": [
+          {
+            "text": "Prepared monthly management accounts and variance analysis for senior management."
+          },
+          {
+            "text": "Reconciled balance sheet accounts as part of the R2R cycle."
+          }
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "BComm",
+        "institution": "University College Cork",
+        "dates": "2015"
+      }
+    ],
+    "certifications": [
+      "Lean Six Sigma Green Belt (2019)"
+    ],
+    "changes": [
+      {
+        "section": "Headline",
+        "change": "Added a target headline built around finance automation product ownership.",
+        "reason": "Recruiters scan the top third first; it now mirrors the job title."
+      },
+      {
+        "section": "Summary",
+        "change": "Replaced the generic profile with a specific one that leads with the 9-to-4-day result.",
+        "reason": "Generic phrases like \"working with stakeholders\" carry no weight; results do."
+      },
+      {
+        "section": "Experience",
+        "change": "Rewrote \"Responsible for\" and \"Worked with\" bullets as achievement statements with action verbs.",
+        "reason": "Responsibility statements describe the job, not your impact."
+      },
+      {
+        "section": "Experience",
+        "change": "Added placeholders for team size, rollout scope and entities.",
+        "reason": "These numbers would strengthen the bullets, but only you know them. Fill in or delete each [placeholder]."
+      },
+      {
+        "section": "Keywords",
+        "change": "Used the job's terms P2P, R2R, business cases and roadmap where your experience supports them.",
+        "reason": "An ATS matches literal phrases; \"purchase-to-pay\" alone may not match \"P2P\"."
+      },
+      {
+        "section": "Skills",
+        "change": "Grouped skills into three labelled categories.",
+        "reason": "Easier for both ATS parsers and humans to scan."
+      }
+    ]
+  },
+  "cover_letter": {
+    "greeting": "Dear Hiring Manager,",
+    "paragraphs": [
+      "At Harbourline Group I led a purchase-to-pay automation programme across six countries that cut invoice processing time from nine days to four. Northwind's plan to automate P2P and R2R with an AI-assisted platform is the next step from the work I have been doing, and I would like to help build it as your Senior Product Owner.",
+      "I bring the finance side of the problem in depth. I have documented AP and general ledger processes end to end, tested them through an SAP S/4HANA migration, and run the workshops where finance users explain what actually slows them down. I am used to turning that into priorities a delivery team can act on, and into business cases that finance leadership will fund.",
+      "I have not yet held a Product Owner title, and I want to be direct about that. The work has been close to it: owning requirements for our invoice automation tool, deciding what shipped first, and tracking adoption through the Power BI dashboards I built for our CFO. I am keen to formalise this in an Agile team, and I would bring the user's perspective that finance automation products often lack.",
+      "I would welcome the chance to discuss how I could help Northwind raise its straight-through processing rate. Thank you for your time."
+    ],
+    "sign_off": "Kind regards,\nJordan Byrne",
+    "notes": [
+      "Name the hiring manager if you can find them on LinkedIn.",
+      "If you did work in sprints or own a backlog, replace the third paragraph's admission with that evidence."
+    ]
+  },
+  "interview": {
+    "star_stories": [
+      {
+        "title": "Halving invoice processing time",
+        "situation": "Invoice processing at Harbourline took 9 days across 6 countries.",
+        "task": "Lead the P2P improvement programme.",
+        "action": "Mapped the process, prioritised fixes with finance users, and worked with IT to roll out invoice automation.",
+        "result": "Processing time fell from 9 to 4 days.",
+        "best_for": [
+          "Tell me about a project you led",
+          "Impact",
+          "Prioritisation"
+        ]
+      },
+      {
+        "title": "Requirements for a new ERP",
+        "situation": "Harbourline was selecting and configuring a new ERP.",
+        "task": "Capture what the finance users actually needed.",
+        "action": "Ran workshops with business users and turned their input into structured requirements.",
+        "result": "[Outcome: for example, requirements signed off on time, or N gaps found before build]",
+        "best_for": [
+          "Stakeholder management",
+          "Requirements and user stories"
+        ]
+      },
+      {
+        "title": "Building the automation business case",
+        "situation": "Kestrel had manual AP and R2R processes.",
+        "task": "Find where automation would pay off.",
+        "action": "Analysed documented processes, identified candidates, and built business cases.",
+        "result": "[Outcome: funded initiatives or projected savings]",
+        "best_for": [
+          "Commercial thinking",
+          "Roadmap"
+        ]
+      }
+    ],
+    "questions": [
+      {
+        "question": "You have not held a Product Owner title. Why should we hire you for this role?",
+        "type": "gap",
+        "approach": "Acknowledge it, then show the product work you have done: owning requirements, prioritising, measuring adoption. Point to your finance-domain depth as the harder part to hire for."
+      },
+      {
+        "question": "How would you prioritise a backlog when Finance and Engineering disagree?",
+        "type": "situational",
+        "approach": "Describe a framework (value vs effort, or KPI impact) and use an example from the ERP workshops."
+      },
+      {
+        "question": "Which KPIs would you use to measure success for P2P automation?",
+        "type": "technical",
+        "approach": "Straight-through processing rate, cost per invoice, cycle time, exception rate, user adoption. Link them to your 9-to-4-day result."
+      },
+      {
+        "question": "Tell me about a time you had to influence a senior stakeholder.",
+        "type": "behavioural",
+        "approach": "Use the CFO dashboard story: what decision the data enabled."
+      },
+      {
+        "question": "What excites you about AI in finance operations?",
+        "type": "motivation",
+        "approach": "Be specific: invoice data extraction, exception handling, and why finance users will trust it only if the product earns it."
+      }
+    ],
+    "questions_to_ask": [
+      "What is the current straight-through processing rate, and where do you want it in a year?",
+      "How are product decisions shared between Finance leadership and the product team?",
+      "What does the first 90 days look like for this role?"
+    ]
+  }
+}

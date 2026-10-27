@@ -1,0 +1,430 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/DexterslabAi/resume-genie/output-schema.json",
+  "title": "Resume Genie output",
+  "description": "Structured result of tailoring one CV to one job advert. Produced by the resume-genie skill; consumed by ats_score.py, build_docx.py and check_fabrication.py.",
+  "type": "object",
+  "required": [
+    "analysis",
+    "cv",
+    "cover_letter"
+  ],
+  "properties": {
+    "analysis": {
+      "type": "object",
+      "required": [
+        "role_title",
+        "match_score",
+        "verdict",
+        "keywords",
+        "requirements",
+        "strengths",
+        "gaps",
+        "strategy"
+      ],
+      "properties": {
+        "role_title": {
+          "type": "string"
+        },
+        "company": {
+          "type": "string"
+        },
+        "match_score": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100,
+          "description": "Honest overall fit"
+        },
+        "verdict": {
+          "type": "string",
+          "enum": [
+            "strong-apply",
+            "apply",
+            "stretch",
+            "skip"
+          ]
+        },
+        "verdict_reason": {
+          "type": "string"
+        },
+        "keywords": {
+          "type": "array",
+          "minItems": 5,
+          "items": {
+            "type": "object",
+            "required": [
+              "term",
+              "importance"
+            ],
+            "properties": {
+              "term": {
+                "type": "string"
+              },
+              "importance": {
+                "type": "string",
+                "enum": [
+                  "required",
+                  "preferred"
+                ]
+              },
+              "synonyms": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "requirements": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "requirement",
+              "status"
+            ],
+            "properties": {
+              "requirement": {
+                "type": "string"
+              },
+              "importance": {
+                "type": "string",
+                "enum": [
+                  "required",
+                  "preferred"
+                ]
+              },
+              "status": {
+                "type": "string",
+                "enum": [
+                  "met",
+                  "partial",
+                  "missing"
+                ]
+              },
+              "evidence": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "strengths": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "gaps": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "gap",
+              "advice"
+            ],
+            "properties": {
+              "gap": {
+                "type": "string"
+              },
+              "advice": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "red_flags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "strategy": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "cv": {
+      "type": "object",
+      "required": [
+        "name",
+        "headline",
+        "contact",
+        "summary",
+        "skills",
+        "experience",
+        "education",
+        "changes"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "headline": {
+          "type": "string"
+        },
+        "contact": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "summary": {
+          "type": "string"
+        },
+        "skills": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "group",
+              "items"
+            ],
+            "properties": {
+              "group": {
+                "type": "string"
+              },
+              "items": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "experience": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": [
+              "title",
+              "company",
+              "dates",
+              "bullets"
+            ],
+            "properties": {
+              "title": {
+                "type": "string"
+              },
+              "company": {
+                "type": "string"
+              },
+              "location": {
+                "type": "string"
+              },
+              "dates": {
+                "type": "string"
+              },
+              "bullets": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "text"
+                  ],
+                  "properties": {
+                    "text": {
+                      "type": "string"
+                    },
+                    "needs_confirmation": {
+                      "type": "boolean"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "projects": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "title"
+            ],
+            "properties": {
+              "title": {
+                "type": "string"
+              },
+              "org": {
+                "type": "string"
+              },
+              "dates": {
+                "type": "string"
+              },
+              "details": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "education": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "degree"
+            ],
+            "properties": {
+              "degree": {
+                "type": "string"
+              },
+              "institution": {
+                "type": "string"
+              },
+              "dates": {
+                "type": "string"
+              },
+              "details": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "certifications": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "changes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "section",
+              "change",
+              "reason"
+            ],
+            "properties": {
+              "section": {
+                "type": "string"
+              },
+              "change": {
+                "type": "string"
+              },
+              "reason": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "cover_letter": {
+      "type": "object",
+      "required": [
+        "greeting",
+        "paragraphs",
+        "sign_off"
+      ],
+      "properties": {
+        "greeting": {
+          "type": "string"
+        },
+        "paragraphs": {
+          "type": "array",
+          "minItems": 2,
+          "items": {
+            "type": "string"
+          }
+        },
+        "sign_off": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "interview": {
+      "type": "object",
+      "required": [
+        "star_stories",
+        "questions",
+        "questions_to_ask"
+      ],
+      "properties": {
+        "star_stories": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "title",
+              "situation",
+              "task",
+              "action",
+              "result"
+            ],
+            "properties": {
+              "title": {
+                "type": "string"
+              },
+              "situation": {
+                "type": "string"
+              },
+              "task": {
+                "type": "string"
+              },
+              "action": {
+                "type": "string"
+              },
+              "result": {
+                "type": "string"
+              },
+              "best_for": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "questions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "question",
+              "type",
+              "approach"
+            ],
+            "properties": {
+              "question": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string",
+                "enum": [
+                  "behavioural",
+                  "technical",
+                  "situational",
+                  "motivation",
+                  "gap"
+                ]
+              },
+              "approach": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "questions_to_ask": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

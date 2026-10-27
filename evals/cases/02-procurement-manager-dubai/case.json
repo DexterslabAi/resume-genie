@@ -1,0 +1,8 @@
+{
+  "title": "Procurement lead applying for a construction Procurement Manager role (Dubai)",
+  "region": "uae-gcc",
+  "track": "general",
+  "notes": "UAE format: photo expected, visa status in the header, nationality and notice period from the candidate's notes. Tests that personal details come only from the candidate.",
+  "build": { "header": ["Visa status: Employment visa (transferable)"], "details": [["Nationality", "Jordanian"], ["Notice period", "30 days"], ["Driving licence", "UAE driving licence"]], "languages": "Arabic (native), English (fluent)" },
+  "expect": { "min_ats_gain": 5, "fabrication_clean": true, "min_placeholders": 1 }
+}
