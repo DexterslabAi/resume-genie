@@ -46,7 +46,7 @@ jobs:
           name: skills
           path: dist/*.zip
       - name: Attach skill zips to the release
-        if: startsWith(github.ref, 'refs/tags/v')
+        if: github.event_name == 'release'  # one uploader per release, so tag and release runs never race
         uses: softprops/action-gh-release@v2
         with:
           files: dist/*.zip
