@@ -18,8 +18,15 @@ class SchemaTest(unittest.TestCase):
 
     def test_missing_section(self):
         o = copy.deepcopy(self.output)
-        del o['cover_letter']
-        self.assertIn('$: missing required "cover_letter"', validate(o, SCHEMA))
+        del o['analysis']
+        self.assertIn('$: missing required "analysis"', validate(o, SCHEMA))
+
+    def test_stage_outputs_valid(self):
+        # Staged workflow: a fit check holds only the analysis; a CV rewrite adds the CV.
+        o = copy.deepcopy(self.output)
+        for key in ('cover_letter', 'interview', 'cv'):
+            o.pop(key, None)
+            self.assertEqual(validate(o, SCHEMA), [], key)
 
     def test_bad_enum_and_range(self):
         o = copy.deepcopy(self.output)

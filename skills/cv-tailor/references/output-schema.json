@@ -4,11 +4,7 @@
   "title": "Resume Genie output",
   "description": "Structured result of tailoring one CV to one job advert. Produced by the resume-genie skill; consumed by ats_score.py, build_docx.py and check_fabrication.py.",
   "type": "object",
-  "required": [
-    "analysis",
-    "cv",
-    "cover_letter"
-  ],
+  "required": ["analysis"],
   "properties": {
     "analysis": {
       "type": "object",

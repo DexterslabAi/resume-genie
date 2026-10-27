@@ -74,6 +74,22 @@ class BuildDocxTest(unittest.TestCase):
         self.assertIn('Dear Hiring Manager', text)
         self.assertIn('Kind regards', text)
 
+    def test_cli_builds_only_the_stage_that_ran(self):
+        import json
+        import subprocess
+        import sys
+        script = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'shared', 'scripts', 'build_docx.py')
+        stages = {
+            'cv-only': ({'analysis': self.output['analysis'], 'cv': self.output['cv']}, ['jordan-byrne-cv.docx']),
+            'letter-only': ({'analysis': self.output['analysis'], 'cover_letter': self.output['cover_letter']}, ['jordan-byrne-cover-letter.docx']),
+        }
+        for label, (data, expected) in stages.items():
+            outdir = self.path(label)
+            src = self.path(f'{label}.json')
+            json.dump(data, open(src, 'w'))
+            subprocess.run([sys.executable, script, src, '--outdir', outdir, '--name', 'Jordan Byrne'], check=True, capture_output=True)
+            self.assertEqual(sorted(os.listdir(outdir)), expected, label)
+
 
 if __name__ == '__main__':
     unittest.main()

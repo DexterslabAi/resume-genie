@@ -143,23 +143,27 @@ def main():
     ap.add_argument('--declaration', action='store_true')
     ap.add_argument('--signature', action='store_true')
     ap.add_argument('--place', default='')
+    ap.add_argument('--name', default='', help='candidate name, needed for a letter-only build')
     today = datetime.date.today()
     ap.add_argument('--date', default=f'{today.day} {today:%B %Y}')
     a = ap.parse_args()
 
     data = json.load(open(a.output_json, encoding='utf-8'))
-    cv = data['cv']
+    cv = data.get('cv') or {}
+    name = a.name or cv.get('name', '')
+    if not cv and not data.get('cover_letter'):
+        ap.error('nothing to build: output has neither "cv" nor "cover_letter"')
     details = [tuple(d.split('=', 1)) for d in a.detail if '=' in d]
     os.makedirs(a.outdir, exist_ok=True)
-    cv_path = os.path.join(a.outdir, f"{slug(cv.get('name'))}-cv.docx")
-    build_cv(cv, cv_path, template=a.template, page=a.page, photo=a.photo, header_lines=a.header, details=details,
-             languages=a.languages, declaration=a.declaration, signature=a.signature, place=a.place, date=a.date)
-    print('Wrote', cv_path)
+    if cv:  # each stage builds only what it produced: CV only, letter only, or both
+        cv_path = os.path.join(a.outdir, f"{slug(name)}-cv.docx")
+        build_cv(cv, cv_path, template=a.template, page=a.page, photo=a.photo, header_lines=a.header, details=details,
+                 languages=a.languages, declaration=a.declaration, signature=a.signature, place=a.place, date=a.date)
+        print('Wrote', cv_path)
     if data.get('cover_letter'):
-        letter_path = os.path.join(a.outdir, f"{slug(cv.get('name'))}-cover-letter.docx")
-        build_letter(data['cover_letter'], letter_path, name=cv.get('name', ''), template=a.template, page=a.page, date=a.date)
+        letter_path = os.path.join(a.outdir, f"{slug(name)}-cover-letter.docx")
+        build_letter(data['cover_letter'], letter_path, name=name, template=a.template, page=a.page, date=a.date)
         print('Wrote', letter_path)
-
 
 if __name__ == '__main__':
     main()

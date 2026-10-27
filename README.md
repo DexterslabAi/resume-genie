@@ -16,13 +16,24 @@ Built by **Rahul Kashyap**
 
 ---
 
-Drag your CV into Claude, paste the job advert and say *"tailor my CV for this job"*. Resume Genie gives you:
+Drag your CV into Claude and paste the job advert. Resume Genie works **in stages**, so you only spend time (and tokens) on the roles worth applying for:
 
-- **Fit score and verdict:** each requirement marked met / partial / missing, with evidence quoted from your CV.
-- **ATS score before → after**, calculated by a script, not guessed: *57 → 75 (+18)*.
-- **A tailored CV and cover letter as Word files**, in one of four templates and eight regional formats (UK & Ireland, US, Canada, Australia & NZ, Europe, Germany/DACH, UAE & GCC, India).
-- **Interview prep:** STAR stories from your real experience, likely questions (including the awkward ones about your gaps) and questions to ask.
-- **A fabrication audit:** every number, employer and date in the new CV is checked against the original. Missing figures become highlighted `[placeholders]` for you to fill in, never inventions.
+**1. Fit check, always first.** A one-line calculated score and a gap table, nothing else:
+
+> **ATS Score: 57/100**
+> **Fit: Stretch.** Strong automation delivery, but no product-ownership title yet.
+>
+> | Requirement | Priority | Status | Evidence in your CV | How to close the gap |
+> |---|---|---|---|---|
+> | Product Owner experience | Required | Missing | ... | ... |
+
+**2. Then you choose** from a menu (buttons where the Claude app supports them). Each option runs once; finished ones are marked ✓ and drop out of the menu:
+
+- **Rewrite my CV:** a tailored Word CV in one of four templates and eight regional formats (UK & Ireland, US, Canada, Australia & NZ, Europe, Germany/DACH, UAE & GCC, India), with the ATS score before → after (*57 → 75*).
+- **Write a cover letter:** a Word letter built on your real evidence, with gaps handled honestly.
+- **Prepare for the interview:** STAR stories from your real experience, likely questions (including the awkward ones about your gaps) and questions to ask.
+
+Every CV rewrite passes **a fabrication audit**: every number, employer and date is checked against the original. Missing figures become highlighted `[placeholders]` for you to fill in, never inventions.
 
 ![Resume Genie scoring a CV, passing the fabrication audit, then catching two planted fabrications](docs/images/demo.gif)
 
@@ -64,7 +75,7 @@ More detail in [docs/design.md](docs/design.md).
 
 | Skill | Use it when you ask… | Bundles |
 |---|---|---|
-| [`resume-genie`](skills/resume-genie) | "Tailor my CV for this job" (the full pipeline) | all four scripts, all references, schema |
+| [`resume-genie`](skills/resume-genie) | "Here's my CV and a job advert" (fit check, then a menu of next steps) | all four scripts, all references, schema |
 | [`job-match-analyzer`](skills/job-match-analyzer) | "Should I apply? Am I a good fit?" | `ats_score.py` |
 | [`ats-score`](skills/ats-score) | "What's my ATS score for this role?" | `ats_score.py` |
 | [`cv-tailor`](skills/cv-tailor) | "Rewrite my CV for this role" | scorer, fabrication check, Word builder |
@@ -91,7 +102,7 @@ cp -r resume-genie/skills/* ~/.claude/skills/
 ## Example prompts
 
 ```
-Tailor my CV for this job. [attach CV] [paste advert]
+Here's my CV and a job I'm looking at. [attach CV] [paste advert]
 Should I apply for this role? Be honest.
 What's my ATS score for this advert, and which required keywords am I missing?
 Make it a UAE CV. Visa: employment visa (transferable), nationality Indian, notice 30 days. [attach photo]
