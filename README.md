@@ -37,6 +37,14 @@ Drag your CV into Claude and paste the job advert. Resume Genie works **in stage
 
 Ask for a **salary benchmark** and you get just the essentials: the advert's own range with where to pitch your ask, or a table of the top 3 sources and a one-line verdict.
 
+**New in 1.2: batch mode.** Give Resume Genie several adverts at once (or ask it to search public job boards) and it screens every role, skips the ones below your fit and ATS thresholds, tailors and audits a CV for each one left, saves Word and PDF copies in **one folder per company**, adds salary data with cited sources, and returns one table:
+
+> | # | Company and role | Fit | ATS | Apply | CV | Salary | Ask for | Flags |
+> |---|---|---|---|---|---|---|---|---|
+> | 1 | Acme Analytics, Data Engineer (Dublin) | 82 | 57 to 85 | Apply | Word, PDF | EUR 80,000-95,000 | EUR 90,000-95,000 | - |
+
+It flags duplicate adverts from different agencies, refuses salary figures with no source behind them, never submits an application for you, and holds the next batch until you confirm you've applied.
+
 Every CV rewrite passes **a fabrication audit**: every number, employer and date is checked against the original. Missing figures become highlighted `[placeholders]` for you to fill in, never inventions.
 
 ## Quick start
@@ -115,7 +123,7 @@ More detail in [docs/design.md](docs/design.md).
 
 | Skill | Use it when you ask… | Bundles |
 |---|---|---|
-| [`resume-genie`](skills/resume-genie) | "Here's my CV and a job advert" (fit check, then a menu of next steps) | all four scripts, all references, schema |
+| [`resume-genie`](skills/resume-genie) | "Here's my CV and a job advert" (fit check, then a menu of next steps), or "Tailor my CV for these 10 roles" (batch mode) | all five scripts, all references, schema |
 | [`job-match-analyzer`](skills/job-match-analyzer) | "Should I apply? Am I a good fit?" | `ats_score.py` |
 | [`ats-score`](skills/ats-score) | "What's my ATS score for this role?" | `ats_score.py` |
 | [`cv-tailor`](skills/cv-tailor) | "Rewrite my CV for this role" | scorer, fabrication check, Word builder |
@@ -133,6 +141,8 @@ What's my ATS score for this advert, and which required keywords am I missing?
 Make it a UAE CV. Visa: employment visa (transferable), nationality Indian, notice 30 days. [attach photo]
 Switch to the Executive template.
 Here are my numbers: team of 6, 40,000 invoices a year. Update the placeholders.
+Here are 10 job links. Skip anything under 70% fit and save each CV in its own company folder.
+I've applied to all of them. Start the next batch.
 Run a mock interview with me for this role, one question at a time.
 ```
 
@@ -156,7 +166,7 @@ skills/                  8 installable skills (each self-contained)
   resume-genie/
     SKILL.md             workflow, rules, file map
     references/          guidance loaded on demand + output schema
-    scripts/             ats_score, check_fabrication, validate_output, build_docx
+    scripts/             ats_score, check_fabrication, validate_output, build_docx, batch_tracker
 shared/                  single source for scripts and references
 tools/                   manifest, sync, lint and packaging
 evals/                   cases, adversarial suite, RESULTS.md
@@ -168,7 +178,7 @@ docs/                    design notes and images
 
 ```bash
 pip install python-docx                     # the only dependency
-python -m unittest discover -s tests -t .   # 35 unit tests
+python -m unittest discover -s tests -t .   # 46 unit tests
 python evals/run_evals.py --write           # evaluations + adversarial guardrail suite
 python tools/lint_skills.py                 # skill format rules
 python tools/sync_shared.py                 # copy shared/ into skills after edits
