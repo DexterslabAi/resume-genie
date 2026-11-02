@@ -10,7 +10,7 @@
 ![Python](https://img.shields.io/badge/python-3.10%2B-1F2937)
 [![Licence: MIT](https://img.shields.io/badge/licence-MIT-1F2937)](LICENSE)
 
-Built by **Rahul Kashyap**
+Built by **Rahul D Kumar**
 
 [**Quick start**](#quick-start) · [How it works](#how-it-works) · [Skills](#the-skills) · [Evaluation](#evaluation) · [Development](#development)
 
@@ -189,7 +189,7 @@ Edit scripts and references in `shared/`, then run `sync_shared.py`. CI fails if
 
 ## Author
 
-**Rahul Kashyap.** Finance transformation and AI product leader, Dublin. I design and build agentic AI tools for finance operations.
+**Rahul D Kumar.** Finance transformation and AI product leader, Dublin. I design and build agentic AI tools for finance operations.
 
 [LinkedIn](https://www.linkedin.com/in/drahulkashyap90) · GitHub [@DexterslabAi](https://github.com/DexterslabAi)
 
