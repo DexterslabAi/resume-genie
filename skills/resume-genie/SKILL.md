@@ -1,6 +1,6 @@
 ---
 name: resume-genie
-description: Job application assistant that works in stages. Given a CV and a job advert it first runs a quick fit check (one-line calculated ATS score plus a gap table), then offers to rewrite the CV, write a cover letter or prepare for the interview, one at a time, checking that nothing was invented. Use when the user shares a CV and a job description, or asks to score, tailor or rewrite a CV for a role.
+description: Job application assistant that works in stages. Given a CV and a job advert it first runs a quick fit check (one-line calculated ATS score plus a gap table), then offers to rewrite the CV, write a cover letter or prepare for the interview, one at a time, checking that nothing was invented. Batch mode handles several roles at once: it gates each on fit and ATS thresholds, files Word and PDF CVs in one folder per company, adds cited salary data and tracks applications. Use when the user shares a CV and one or more job descriptions, or asks to score, tailor or rewrite a CV for a role.
 ---
 
 # Resume Genie
@@ -97,6 +97,10 @@ Follow `references/interview-prep.md`. Reply in chat, no file unless asked:
 
 Then the menu. For a mock interview, ask one question at a time and give feedback after each answer.
 
+## Batch mode (several roles)
+
+When the user shares several adverts or asks you to handle a list of roles, follow `references/batch-mode.md`. Each role goes through the same fit check, tailoring and audit; `scripts/batch_tracker.py` then gates the roles on the user's thresholds, flags duplicate adverts, refuses salary asks without a cited source, creates one folder per company, converts the CVs to PDF and prints the summary table. Never submit an application for the user, and start the next batch only after they confirm they've applied.
+
 ## Follow-ups
 
 - **"Use the Modern template" / "make it US format":** rebuild with the new flags. There's no need to rewrite.
@@ -136,3 +140,5 @@ Name each source with its link. Never invent figures: if fewer than 3 credible s
 | `scripts/check_fabrication.py` | Guardrail audit: invented numbers, employers or dates |
 | `scripts/validate_output.py` | Schema validation, no dependencies |
 | `scripts/build_docx.py` | Word files in four templates; builds only the parts a stage produced |
+| `references/batch-mode.md` | Settings, gates, filing and tracking for several roles |
+| `scripts/batch_tracker.py` | Batch gates, duplicate check, company folders, PDF export, summary table, application tracking |

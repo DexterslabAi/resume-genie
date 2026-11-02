@@ -1,7 +1,7 @@
 {
   "resume-genie": {
-    "scripts": ["ats_score.py", "build_docx.py", "check_fabrication.py", "validate_output.py"],
-    "references": ["job-analysis.md", "cv-writing.md", "career-tracks.md", "regions.md", "cover-letter.md", "interview-prep.md", "output-schema.json"]
+    "scripts": ["ats_score.py", "build_docx.py", "check_fabrication.py", "validate_output.py", "batch_tracker.py"],
+    "references": ["job-analysis.md", "cv-writing.md", "career-tracks.md", "regions.md", "cover-letter.md", "interview-prep.md", "output-schema.json", "batch-mode.md"]
   },
   "job-match-analyzer": { "scripts": ["ats_score.py"], "references": ["job-analysis.md"] },
   "ats-score": { "scripts": ["ats_score.py"], "references": ["job-analysis.md"] },
