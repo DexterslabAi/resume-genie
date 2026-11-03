@@ -43,7 +43,7 @@ Ask for a **salary benchmark** and you get just the essentials: the advert's own
 > |---|---|---|---|---|---|---|---|---|
 > | 1 | Acme Analytics, Data Engineer (Dublin) | 82 | 57 to 85 | Apply | Word, PDF | EUR 80,000-95,000 | EUR 90,000-95,000 | - |
 
-It flags duplicate adverts from different agencies, refuses salary figures with no source behind them, never submits an application for you, and holds the next batch until you confirm you've applied.
+It flags duplicate adverts from different agencies, refuses salary figures with no source behind them, never submits an application for you, and holds the next batch until every role is applied or declined (you can turn any role down).
 
 Every CV rewrite passes **a fabrication audit**: every number, employer and date is checked against the original. Missing figures become highlighted `[placeholders]` for you to fill in, never inventions.
 
@@ -142,7 +142,7 @@ Make it a UAE CV. Visa: employment visa (transferable), nationality Indian, noti
 Switch to the Executive template.
 Here are my numbers: team of 6, 40,000 invoices a year. Update the placeholders.
 Here are 10 job links. Skip anything under 70% fit and save each CV in its own company folder.
-I've applied to all of them. Start the next batch.
+I've applied to 1 to 8. Not applying to 9 and 10. Start the next batch.
 Run a mock interview with me for this role, one question at a time.
 ```
 
@@ -178,7 +178,7 @@ docs/                    design notes and images
 
 ```bash
 pip install python-docx                     # the only dependency
-python -m unittest discover -s tests -t .   # 46 unit tests
+python -m unittest discover -s tests -t .   # 50 unit tests
 python evals/run_evals.py --write           # evaluations + adversarial guardrail suite
 python tools/lint_skills.py                 # skill format rules
 python tools/sync_shared.py                 # copy shared/ into skills after edits

@@ -93,6 +93,36 @@ class BatchTrackerTest(unittest.TestCase):
         bt.check(d)  # applied roles are never reopened
         self.assertEqual({j['status'] for j in d['jobs']}, {'applied'})
 
+    def test_declined_roles_count_as_done(self):
+        d = batch([job(), job(company='Beta Systems', role='Platform Engineer'), job(company='Gamma Bank', role='FP&A Lead')])
+        bt.check(d)
+        self.assertEqual(bt.mark_applied(d, '1'), 1)
+        self.assertEqual(bt.mark_declined(d, '2', 'prefers hybrid'), 1)
+        self.assertEqual(bt.pending(d), [3])
+        bt.mark_declined(d, '3')
+        self.assertEqual(bt.pending(d), [])
+        self.assertEqual(d['jobs'][1]['decline_reason'], 'prefers hybrid')
+        self.assertNotIn('decline_reason', d['jobs'][2])
+        bt.check(d)  # declined roles are never reopened
+        self.assertEqual([j['status'] for j in d['jobs']], ['applied', 'declined', 'declined'])
+        out = bt.table(d)
+        self.assertIn('Not applying: #2 Beta Systems (prefers hybrid); #3 Gamma Bank', out)
+        self.assertIn('Applied: 1. Not applying: 2. Still to decide: 0.', out)
+
+    def test_declined_cli(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path = os.path.join(tmp, 'batch.json')
+            with open(path, 'w') as f:
+                json.dump(batch([job(), job(company='Beta Systems', role='Platform Engineer')]), f)
+            script = os.path.join(ROOT, 'shared', 'scripts', 'batch_tracker.py')
+            run = lambda *a: subprocess.run([sys.executable, script, a[0], path, *a[1:]], capture_output=True, text=True)
+            run('check')
+            run('applied', '1')
+            self.assertEqual(run('next').returncode, 1)
+            self.assertIn('1 role(s) marked as not applying', run('declined', '2', 'not interested').stdout)
+            self.assertEqual(run('next').returncode, 0)
+            self.assertEqual(run('declined').returncode, 2)
+
     def test_pdf_without_libreoffice(self):
         d = batch([job()])
         bt.check(d)

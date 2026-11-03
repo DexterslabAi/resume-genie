@@ -99,7 +99,7 @@ Then the menu. For a mock interview, ask one question at a time and give feedbac
 
 ## Batch mode (several roles)
 
-When the user shares several adverts or asks you to handle a list of roles, follow `references/batch-mode.md`. Each role goes through the same fit check, tailoring and audit; `scripts/batch_tracker.py` then gates the roles on the user's thresholds, flags duplicate adverts, refuses salary asks without a cited source, creates one folder per company, converts the CVs to PDF and prints the summary table. Never submit an application for the user, and start the next batch only after they confirm they've applied.
+When the user shares several adverts or asks you to handle a list of roles, follow `references/batch-mode.md`. Each role goes through the same fit check, tailoring and audit; `scripts/batch_tracker.py` then gates the roles on the user's thresholds, flags duplicate adverts, refuses salary asks without a cited source, creates one folder per company, converts the CVs to PDF and prints the summary table. Never submit an application for the user. The user may decline any role; record it and move on. Start the next batch only after every ready role is applied or declined.
 
 ## Follow-ups
 
