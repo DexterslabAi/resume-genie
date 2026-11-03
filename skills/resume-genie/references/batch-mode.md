@@ -50,11 +50,12 @@ The table from `batch_tracker.py table`, then at most five short bullets:
 - duplicates and anything below the user's salary target
 - on-site, relocation or sponsorship conditions stated in the advert
 
-End with: "Tell me when you've applied and I'll start the next batch."
+End with: "Tell me which roles you've applied to, and any you've decided not to apply for, and I'll start the next batch."
 
 ## Applying and the next batch
 
 - **Never submit an application for the user.** Give the apply link; the user applies.
 - When the user confirms, run `batch_tracker.py applied batch.json all` (or the numbers they name).
-- Start the next batch only when `batch_tracker.py next batch.json` exits 0.
+- The user may decide not to apply for a role, for reasons of their own. Don't argue or ask why; record it with `batch_tracker.py declined batch.json N ["reason"]` (a reason only if they give one). Declined roles never come back in later batches.
+- Start the next batch only when `batch_tracker.py next batch.json` exits 0: every ready role is applied or declined.
 - If a role reaches interview, save the interview prep in that company's folder.

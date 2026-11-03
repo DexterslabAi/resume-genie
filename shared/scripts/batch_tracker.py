@@ -8,7 +8,8 @@ parts that must be exact and repeatable:
   - flags likely duplicate adverts (the same role posted by several agencies)
   - creates one folder per company and names the CV files consistently
   - prints the summary table with apply links, file links and salary
-  - holds back the next batch until every ready role is marked as applied
+  - holds back the next batch until every ready role is marked as applied or declined
+    (the user may decide not to apply for a role, for any reason of their own)
 
 batch.json:
   {"settings": {"output_dir": "Claude CVs", "candidate": "Alex Morgan",
@@ -26,7 +27,8 @@ Usage:
   python batch_tracker.py pdf     batch.json   # convert each Word CV to PDF (needs LibreOffice)
   python batch_tracker.py table   batch.json   # markdown summary of the current batch
   python batch_tracker.py applied batch.json all|N[,N...]
-  python batch_tracker.py next    batch.json   # exit 1 until every ready role is applied
+  python batch_tracker.py declined batch.json N[,N...] ["reason"]   # user chose not to apply
+  python batch_tracker.py next    batch.json   # exit 1 until every ready role is applied or declined
 
 Author: Rahul Kashyap. MIT licence.
 """
@@ -41,7 +43,8 @@ from urllib.parse import quote
 
 DEFAULTS = {'output_dir': 'Resume Genie CVs', 'candidate': 'Candidate', 'fit_threshold': 70,
             'ats_target': 80, 'batch_size': 10}
-READY, SKIPPED, APPLIED, NEW = 'ready', 'skipped', 'applied', 'new'
+READY, SKIPPED, APPLIED, DECLINED, NEW = 'ready', 'skipped', 'applied', 'declined', 'new'
+DONE = (APPLIED, DECLINED)
 
 
 def load(path):
@@ -90,7 +93,7 @@ def check(data):
     s = data['settings']
     notes = []
     for i, job in enumerate(data['jobs'], 1):
-        if job.get('status') == APPLIED:
+        if job.get('status') in DONE:
             continue
         reasons = []
         if (job.get('fit') or 0) < s['fit_threshold']:
@@ -176,9 +179,16 @@ def table(data):
                     f"| {_link('Apply', j.get('apply_url'))} | {cv} | {found} | {sal.get('ask') or '-'} "
                     f"| {'; '.join(j.get('flags') or []) or '-'} |")
     skipped = [(i, j) for i, j in enumerate(data['jobs'], 1) if j.get('status') == SKIPPED]
+    declined = [(i, j) for i, j in enumerate(data['jobs'], 1) if j.get('status') == DECLINED]
+    applied = sum(1 for j in data['jobs'] if j.get('status') == APPLIED)
     out = '\n'.join(rows)
     if skipped:
         out += '\n\nSkipped: ' + '; '.join(f"#{i} {j.get('company', '')} ({j.get('skip_reason')})" for i, j in skipped)
+    if declined:
+        out += '\n\nNot applying: ' + '; '.join(f"#{i} {j.get('company', '')}" + (f" ({j['decline_reason']})" if j.get('decline_reason') else '')
+                                                for i, j in declined)
+    if applied or declined:
+        out += f'\n\nApplied: {applied}. Not applying: {len(declined)}. Still to decide: {len(pending(data))}.'
     return out
 
 
@@ -192,12 +202,24 @@ def mark_applied(data, which):
     return count
 
 
+def mark_declined(data, which, reason=''):
+    picks = {int(x) for x in which.split(',') if x.strip()}
+    count = 0
+    for i, job in enumerate(data['jobs'], 1):
+        if i in picks and job.get('status') in (READY, APPLIED):
+            job['status'] = DECLINED
+            if reason:
+                job['decline_reason'] = reason
+            count += 1
+    return count
+
+
 def pending(data):
     return [i for i, j in enumerate(data['jobs'], 1) if j.get('status') == READY]
 
 
 def _main(argv):
-    if len(argv) < 3 or argv[1] not in ('check', 'folders', 'pdf', 'table', 'applied', 'next'):
+    if len(argv) < 3 or argv[1] not in ('check', 'folders', 'pdf', 'table', 'applied', 'declined', 'next'):
         print(__doc__)
         return 2
     cmd, path = argv[1], argv[2]
@@ -230,11 +252,19 @@ def _main(argv):
         save(path, data)
         print(f'{n} role(s) marked as applied.')
         return 0
+    if cmd == 'declined':
+        if len(argv) < 4:
+            print('Say which roles: declined batch.json N[,N...] ["reason"]')
+            return 2
+        n = mark_declined(data, argv[3], argv[4] if len(argv) > 4 else '')
+        save(path, data)
+        print(f'{n} role(s) marked as not applying.')
+        return 0
     left = pending(data)
     if left:
-        print('Not yet applied: ' + ', '.join(f'#{i}' for i in left) + '. Finish these before the next batch.')
+        print('Still to decide: ' + ', '.join(f'#{i}' for i in left) + '. Mark each as applied or declined before the next batch.')
         return 1
-    print('All ready roles are applied. Start the next batch.')
+    print('Every ready role is applied or declined. Start the next batch.')
     return 0
 
 

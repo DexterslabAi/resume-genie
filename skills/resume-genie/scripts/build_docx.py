@@ -78,7 +78,8 @@ def build_cv(cv, path, template='classic', page='a4', photo=None, header_lines=(
         if bold_prefix: _runs(p, bold_prefix, T['body'], True)
         _runs(p, text, T['body']); return p
     def bullet(text):
-        p = doc.add_paragraph(style='List Bullet'); p.paragraph_format.space_after = Pt(1); _runs(p, text, T['body'])
+        p = doc.add_paragraph(style='List Bullet'); p.paragraph_format.space_after = Pt(1); p.paragraph_format.keep_together = True; _runs(p, text, T['body'])
+        return p
     if cv.get('summary'): heading('Professional Summary'); para(cv['summary'])
     if cv.get('skills'):
         heading('Key Skills')
@@ -90,9 +91,16 @@ def build_cv(cv, path, template='classic', page='a4', photo=None, header_lines=(
             p = doc.add_paragraph(); p.paragraph_format.space_before = Pt(6); p.paragraph_format.space_after = Pt(0); p.paragraph_format.keep_with_next = True
             p.paragraph_format.tab_stops.add_tab_stop(width, WD_TAB_ALIGNMENT.RIGHT)
             _runs(p, job.get('title', ''), T['body'] + 0.5, True); _runs(p, '\t' + job.get('dates', ''), T['body'] - 0.5, color='4B5563')
-            q = doc.add_paragraph(); q.paragraph_format.space_after = Pt(2)
-            _runs(q, ', '.join(x for x in [job.get('company'), job.get('location')] if x), T['body'], italic=True, color=T['accent'] if template == 'modern' else '374151')
-            for b in job.get('bullets', []): bullet(b['text'] if isinstance(b, dict) else b)
+            sub = ', '.join(x for x in [job.get('company'), job.get('location')] if x)
+            if sub:  # no empty line when an entry (a career break, say) has no company or location
+                q = doc.add_paragraph(); q.paragraph_format.space_after = Pt(2); q.paragraph_format.keep_with_next = True
+                _runs(q, sub, T['body'], italic=True, color=T['accent'] if template == 'modern' else '374151')
+            items = [b['text'] if isinstance(b, dict) else b for b in job.get('bullets', [])]
+            short = len(items) <= 3  # short entries stay on one page; longer ones keep the heading with the first bullet
+            for k, text in enumerate(items):
+                bp = bullet(text)
+                if k < len(items) - 1 and (k == 0 or short):
+                    bp.paragraph_format.keep_with_next = True
     if cv.get('projects'):
         heading('Projects')
         for pr in cv['projects']:

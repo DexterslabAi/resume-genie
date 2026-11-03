@@ -42,6 +42,32 @@ class BuildDocxTest(unittest.TestCase):
             self.assertIn(spec['font'], styles, name)
             self.assertIn('Harbourline Group', self.text(p), name)
 
+    def test_entry_without_company_has_no_empty_line(self):
+        import copy, docx
+        cv = copy.deepcopy(self.output['cv'])
+        cv['experience'].append({'title': 'Career Break', 'company': '', 'location': '', 'dates': '10/2013 to 05/2014',
+                                 'bullets': [{'text': 'Took a planned break to support family.'}]})
+        p = self.path('break.docx')
+        build_cv(cv, p)
+        paras = docx.Document(p).paragraphs
+        i = next(k for k, x in enumerate(paras) if x.text.startswith('Career Break'))
+        self.assertEqual(paras[i + 1].text, 'Took a planned break to support family.')
+
+    def test_headings_stay_with_their_bullets(self):
+        import docx
+        p = self.path('keep.docx')
+        build_cv(self.output['cv'], p)
+        paras = docx.Document(p).paragraphs
+        for k, x in enumerate(paras):
+            if x.style.name == 'List Bullet':
+                self.assertTrue(x.paragraph_format.keep_together)
+        first_job = self.output['cv']['experience'][0]
+        i = next(k for k, x in enumerate(paras) if x.text.startswith(first_job['title']))
+        self.assertTrue(paras[i].paragraph_format.keep_with_next)          # title
+        self.assertTrue(paras[i + 1].paragraph_format.keep_with_next)      # company line
+        if len(first_job['bullets']) > 1:
+            self.assertTrue(paras[i + 2].paragraph_format.keep_with_next)  # first bullet
+
     def test_page_sizes(self):
         import docx
         build_cv(self.output['cv'], self.path('us.docx'), page='letter')

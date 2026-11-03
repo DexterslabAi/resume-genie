@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.2.1 (2026-11-03)
+
+- **Decline a role.** Users can mark a role they've chosen not to apply for: `batch_tracker.py declined batch.json N ["reason"]`. Declined roles count as done, are never reopened, and show in the summary with applied and still-to-decide counts. The next batch starts once every ready role is applied or declined.
+- **Cleaner page breaks in Word CVs.** No empty line under an entry without a company or location (a career break, say). A role's heading always stays on the same page as its first bullet, short entries (three bullets or fewer) stay together, and bullets never split across pages.
+- 4 new tests (50 in total).
+
 ## 1.2.0 (2026-11-02)
 
 - **Batch mode** in `resume-genie`: handle several roles in one go. Each role gets the usual fit check, tailored CV and fabrication audit, then `batch_tracker.py` takes over the parts that must be exact.
